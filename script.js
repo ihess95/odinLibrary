@@ -16,9 +16,14 @@ function Book(title, author, pageCount, isRead) {
   };
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function addBookToLibrary(Book) {
+  myLibrary.push(Book);
 }
 
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, true);
+const theShining = new Book("The Shining", "Stephen King", 399, true);
 console.log(theHobbit.info());
+addBookToLibrary(theHobbit);
+addBookToLibrary(theShining);
+
+console.log(myLibrary);
