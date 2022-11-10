@@ -2,6 +2,8 @@ let myLibrary = [];
 let bookCount = [];
 let userInfo = "";
 let userInfoArr = [];
+let newContent = "";
+let newDiv = "";
 const libraryContainer = document.querySelector(".bookshelf");
 const addButton = document.createElement("button");
 addButton.textContent = "Click here to add a new book";
@@ -18,6 +20,7 @@ addButton.addEventListener("click", function () {
     userInfoArr[3]
   );
   addBookToLibrary(newBook);
+  addNewShelf();
 });
 const buttonDiv = document.querySelector(".buttonDiv");
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, true);
@@ -52,12 +55,20 @@ function addBookToLibrary(Book) {
 
 function addShelf() {
   for (let i = 0; i <= myLibrary.length; i++) {
-    const newDiv = document.createElement("div");
+    newDiv = document.createElement("div");
     newDiv.className = "book";
-    const newContent = document.createTextNode(myLibrary[i].info());
+    newContent = document.createTextNode(myLibrary[i].info());
     newDiv.appendChild(newContent);
     libraryContainer.appendChild(newDiv);
   }
+}
+
+function addNewShelf() {
+  newDiv = document.createElement("div");
+  newDiv.className = "book";
+  newContent = document.createTextNode(myLibrary.slice(-1)[0].info());
+  newDiv.appendChild(newContent);
+  libraryContainer.appendChild(newDiv);
 }
 
 buttonDiv.appendChild(addButton);
