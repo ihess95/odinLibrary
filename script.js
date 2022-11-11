@@ -43,6 +43,7 @@ const mySideOfTheMountain = new Book(
   "true"
 );
 const ghostStories = new Book("Ghost Stories", "Peter Straub", 444, "true");
+const warAndPeace = new Book("War and Peace", "Leo Tolstoy", 777, "false");
 
 function addBookToLibrary(Book) {
   myLibrary.push(Book);
@@ -95,6 +96,7 @@ addBookToLibrary(theHobbit);
 addBookToLibrary(theShining);
 addBookToLibrary(mySideOfTheMountain);
 addBookToLibrary(ghostStories);
+addBookToLibrary(warAndPeace);
 console.log(myLibrary);
 
 addShelf();
