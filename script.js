@@ -56,6 +56,12 @@ function addShelf() {
     newContent = document.createTextNode(myLibrary[i].info());
     newDiv.appendChild(newContent);
     libraryContainer.appendChild(newDiv);
+    console.log(myLibrary[i].read);
+    if (myLibrary[i].read === "true") {
+      newDiv.style.borderLeft = "#4ade80 solid 10px";
+    } else {
+      newDiv.style.borderLeft = "#ef4444 solid 10px";
+    }
   }
 }
 
@@ -66,17 +72,17 @@ function addNewShelf() {
   newContent = document.createTextNode(myLibrary.slice(-1)[0].info());
   newDiv.appendChild(newContent);
   libraryContainer.appendChild(newDiv);
-  isRead();
+  hasBeenRead();
 }
 
-function isRead() {
-  for (let i = 0; i <= myLibrary.length; i++) {
-    if (myLibrary[i].read === "true") {
-      const tempBook = document.querySelector(`.book${i}`);
+function hasBeenRead() {
+  for (let x = 0; x <= myLibrary.length; x++) {
+    if (myLibrary[x].read === "true") {
+      let tempBook = document.querySelector(`.book${x}`);
       tempBook.style.borderLeft = "#4ade80 solid 10px";
       console.log(tempBook);
     } else {
-      const tempBook = document.querySelector(`.book${i}`);
+      let tempBook = document.querySelector(`.book${x}`);
       tempBook.style.borderLeft = "#ef4444 solid 10px";
       console.log(tempBook);
     }
@@ -92,5 +98,3 @@ addBookToLibrary(ghostStories);
 console.log(myLibrary);
 
 addShelf();
-
-isRead();
