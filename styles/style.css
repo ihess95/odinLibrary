@@ -34,6 +34,11 @@ body {
 .book .switch {
   align-self: flex-end;
 }
+.book button {
+  border-radius: 30px;
+  border: none;
+  padding: 10px;
+}
 
 .buttonDiv {
   display: flex;

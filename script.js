@@ -6,6 +6,16 @@ let newContent = "";
 let newDiv = "";
 const libraryContainer = document.querySelector(".bookshelf");
 const addButton = document.createElement("button");
+let toggleSwitch = document.createElement("label");
+let input = document.createElement("input");
+let switchSpan = document.createElement("slider");
+toggleSwitch.textContent = "test";
+toggleSwitch.appendChild(input);
+input.appendChild(switchSpan);
+
+toggleSwitch.classList.add("switch");
+input.type = "checkbox";
+switchSpan.classList.add("slider", "round");
 
 function Book(title, author, pageCount, isRead) {
   this.title = title;
@@ -56,24 +66,25 @@ function addShelf() {
     newDiv.classList.add("book" + i);
     newContent = document.createTextNode(myLibrary[i].info());
     newDiv.appendChild(newContent);
-    let toggleSwitch = document.createElement("label");
-    let input = document.createElement("input");
-    let switchSpan = document.createElement("slider");
-    toggleSwitch.textContent = "Have you read this book?";
-    toggleSwitch.appendChild(input);
-    input.appendChild(switchSpan);
-    newDiv.appendChild(toggleSwitch);
     libraryContainer.appendChild(newDiv);
-    toggleSwitch.classList.add("switch");
-    input.type = "checkbox";
-    switchSpan.classList.add("slider", "round");
+    addReadButton(newDiv, myLibrary[i]);
 
     if (myLibrary[i].read === "true") {
       newDiv.style.borderLeft = "#4ade80 solid 10px";
-      input.checked = true;
     } else {
       newDiv.style.borderLeft = "#ef4444 solid 10px";
     }
+  }
+}
+function addReadButton(div, tempVar) {
+  let readButton = document.createElement("button");
+  div.appendChild(readButton);
+  if (tempVar.read === "true") {
+    readButton.textContent = "You've read this book.";
+    readButton.style.backgroundColor = "#4ade80";
+  } else {
+    readButton.textContent = "You have not read this book yet.";
+    readButton.style.backgroundColor = "#ef4444";
   }
 }
 
@@ -85,6 +96,7 @@ function addNewShelf() {
   newDiv.appendChild(newContent);
   libraryContainer.appendChild(newDiv);
   hasBeenRead();
+  addReadButton(newDiv, myLibrary.slice(-1)[0].read);
 }
 
 function hasBeenRead() {

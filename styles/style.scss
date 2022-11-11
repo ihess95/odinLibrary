@@ -28,6 +28,11 @@ body {
   .switch {
     align-self: flex-end;
   }
+  button {
+    border-radius: 30px;
+    border: none;
+    padding: 10px;
+  }
 }
 
 .buttonDiv {
