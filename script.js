@@ -62,9 +62,11 @@ function addShelf() {
 function addNewShelf() {
   newDiv = document.createElement("div");
   newDiv.className = "book";
+  newDiv.classList.add("book" + (myLibrary.length - 1));
   newContent = document.createTextNode(myLibrary.slice(-1)[0].info());
   newDiv.appendChild(newContent);
   libraryContainer.appendChild(newDiv);
+  isRead();
 }
 
 function isRead() {
@@ -74,6 +76,9 @@ function isRead() {
       tempBook.style.borderLeft = "#4ade80 solid 10px";
       console.log(tempBook);
     } else {
+      const tempBook = document.querySelector(`.book${i}`);
+      tempBook.style.borderLeft = "#ef4444 solid 10px";
+      console.log(tempBook);
     }
   }
 }
