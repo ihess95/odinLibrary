@@ -56,10 +56,21 @@ function addShelf() {
     newDiv.classList.add("book" + i);
     newContent = document.createTextNode(myLibrary[i].info());
     newDiv.appendChild(newContent);
+    let toggleSwitch = document.createElement("label");
+    let input = document.createElement("input");
+    let switchSpan = document.createElement("slider");
+    toggleSwitch.textContent = "Have you read this book?";
+    toggleSwitch.appendChild(input);
+    input.appendChild(switchSpan);
+    newDiv.appendChild(toggleSwitch);
     libraryContainer.appendChild(newDiv);
-    console.log(myLibrary[i].read);
+    toggleSwitch.classList.add("switch");
+    input.type = "checkbox";
+    switchSpan.classList.add("slider", "round");
+
     if (myLibrary[i].read === "true") {
       newDiv.style.borderLeft = "#4ade80 solid 10px";
+      input.checked = true;
     } else {
       newDiv.style.borderLeft = "#ef4444 solid 10px";
     }

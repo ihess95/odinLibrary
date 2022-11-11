@@ -19,6 +19,9 @@ body {
 }
 
 .book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
   height: 20vh;
   min-height: -webkit-fit-content;
@@ -27,6 +30,9 @@ body {
   background-color: #f5f5f5;
   border-radius: 30px;
   box-shadow: 1px 1px 4px 2px #262626;
+}
+.book .switch {
+  align-self: flex-end;
 }
 
 .buttonDiv {
