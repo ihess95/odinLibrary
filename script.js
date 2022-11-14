@@ -89,17 +89,23 @@ function addReadButton(div, tempVar) {
   }
   readButton.addEventListener("click", function () {
     console.log(this);
-    if ((this.textContent = "You've read this book")) {
+    console.log(this.parentElement.className.slice(-1));
+    const tempVarButton = this.parentElement.className.slice(-1);
+    if (myLibrary[tempVarButton].read === "true") {
       this.textContent = "You have not read this book yet.";
       this.style.backgroundColor = "#ef4444";
       this.parentElement.style.borderLeft = "#ef4444 solid 10px";
+      myLibrary[tempVarButton].read = "false";
     } else {
       this.textContent = "You've read this book";
       this.style.backgroundColor = "#4ade80";
       this.parentElement.style.borderLeft = "#4ade80 solid 10px";
+      myLibrary[tempVarButton].read = "true";
     }
   });
 }
+
+function ifRead() {}
 
 // function addNewShelf() {
 //   newDiv = document.createElement("div");
