@@ -96,7 +96,6 @@ function addNewShelf() {
   newDiv.appendChild(newContent);
   libraryContainer.appendChild(newDiv);
   hasBeenRead();
-  addReadButton(newDiv, myLibrary.slice(-1)[0].read);
 }
 
 function hasBeenRead() {
@@ -109,6 +108,9 @@ function hasBeenRead() {
       let tempBook = document.querySelector(`.book${x}`);
       tempBook.style.borderLeft = "#ef4444 solid 10px";
       console.log(tempBook);
+    }
+    if (x === myLibrary.length) {
+      addReadButton(newDiv, myLibrary[x].read);
     }
   }
 }
