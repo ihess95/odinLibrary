@@ -81,6 +81,11 @@ function addShelf() {
     authorDiv.appendChild(author);
     pageDiv.appendChild(pageCount);
     deleteDiv.appendChild(elem);
+    deleteDiv.addEventListener("click", function () {
+      const tempVarButton = this.parentElement.className.slice(-1);
+      this.parentElement.remove();
+      myLibrary.splice(tempVarButton, 1);
+    });
     newDiv.appendChild(titleDiv);
     newDiv.appendChild(authorDiv);
     newDiv.appendChild(pageDiv);
@@ -123,7 +128,10 @@ function addReadButton(div, tempVar) {
   });
 }
 
-function ifRead() {}
+function removeCard(card) {
+  card.remove();
+  console.log("test");
+}
 
 // function addNewShelf() {
 //   newDiv = document.createElement("div");
