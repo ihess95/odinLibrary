@@ -39,6 +39,19 @@ body {
   border: none;
   padding: 10px;
 }
+.book .delete {
+  padding: 10px;
+  padding-right: 0px;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
+.book .delete img {
+  width: 20px;
+  height: 20px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
 
 .buttonDiv {
   display: flex;

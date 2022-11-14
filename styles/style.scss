@@ -33,6 +33,18 @@ body {
     border: none;
     padding: 10px;
   }
+  .delete {
+    padding: 10px;
+    padding-right: 0px;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+  }
+  .delete img {
+    width: 20px;
+    height: 20px;
+    cursor: grab;
+  }
 }
 
 .buttonDiv {

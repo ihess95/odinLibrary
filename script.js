@@ -68,17 +68,23 @@ function addShelf() {
     let titleDiv = document.createElement("div");
     let authorDiv = document.createElement("div");
     let pageDiv = document.createElement("div");
+    let deleteDiv = document.createElement("div");
+    deleteDiv.classList.add("delete");
     title = document.createTextNode(`Title: ${myLibrary[i].title}`);
     author = document.createTextNode("Author: " + myLibrary[i].author);
     pageCount = document.createTextNode(
       "Page Count: " + myLibrary[i].pageCount
     );
+    let elem = document.createElement("img");
+    elem.src = "imgs/delete.svg";
     titleDiv.appendChild(title);
     authorDiv.appendChild(author);
     pageDiv.appendChild(pageCount);
+    deleteDiv.appendChild(elem);
     newDiv.appendChild(titleDiv);
     newDiv.appendChild(authorDiv);
     newDiv.appendChild(pageDiv);
+    newDiv.appendChild(deleteDiv);
     libraryContainer.appendChild(newDiv);
     addReadButton(newDiv, myLibrary[i]);
 
