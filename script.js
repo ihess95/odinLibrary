@@ -41,7 +41,7 @@ addButton.addEventListener("click", function () {
     userInfoArr[3]
   );
   addBookToLibrary(newBook);
-  addNewShelf();
+  addShelf();
 });
 const buttonDiv = document.querySelector(".buttonDiv");
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, "true");
@@ -60,6 +60,7 @@ function addBookToLibrary(Book) {
 }
 
 function addShelf() {
+  libraryContainer.innerHTML = "";
   for (let i = 0; i <= myLibrary.length; i++) {
     newDiv = document.createElement("div");
     newDiv.className = "book";
@@ -108,9 +109,6 @@ function hasBeenRead() {
       let tempBook = document.querySelector(`.book${x}`);
       tempBook.style.borderLeft = "#ef4444 solid 10px";
       console.log(tempBook);
-    }
-    if (x === myLibrary.length) {
-      addReadButton(newDiv, myLibrary[x].read);
     }
   }
 }
