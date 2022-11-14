@@ -87,17 +87,29 @@ function addReadButton(div, tempVar) {
     readButton.textContent = "You have not read this book yet.";
     readButton.style.backgroundColor = "#ef4444";
   }
+  readButton.addEventListener("click", function () {
+    console.log(this);
+    if ((this.textContent = "You've read this book")) {
+      this.textContent = "You have not read this book yet.";
+      this.style.backgroundColor = "#ef4444";
+      this.parentElement.style.borderLeft = "#ef4444 solid 10px";
+    } else {
+      this.textContent = "You've read this book";
+      this.style.backgroundColor = "#4ade80";
+      this.parentElement.style.borderLeft = "#4ade80 solid 10px";
+    }
+  });
 }
 
-function addNewShelf() {
-  newDiv = document.createElement("div");
-  newDiv.className = "book";
-  newDiv.classList.add("book" + (myLibrary.length - 1));
-  newContent = document.createTextNode(myLibrary.slice(-1)[0].info());
-  newDiv.appendChild(newContent);
-  libraryContainer.appendChild(newDiv);
-  hasBeenRead();
-}
+// function addNewShelf() {
+//   newDiv = document.createElement("div");
+//   newDiv.className = "book";
+//   newDiv.classList.add("book" + (myLibrary.length - 1));
+//   newContent = document.createTextNode(myLibrary.slice(-1)[0].info());
+//   newDiv.appendChild(newContent);
+//   libraryContainer.appendChild(newDiv);
+//   hasBeenRead();
+// }
 
 function hasBeenRead() {
   for (let x = 0; x <= myLibrary.length; x++) {
@@ -112,6 +124,11 @@ function hasBeenRead() {
     }
   }
 }
+
+// function readButton() {
+//   const parent = button.closest(".book");
+//   console.log(parent);
+// }
 
 buttonDiv.appendChild(addButton);
 
