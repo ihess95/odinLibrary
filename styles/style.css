@@ -38,6 +38,8 @@ body {
   border-radius: 30px;
   border: none;
   padding: 10px;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 .book .delete {
   padding: 10px;

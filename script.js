@@ -17,14 +17,16 @@ toggleSwitch.classList.add("switch");
 input.type = "checkbox";
 switchSpan.classList.add("slider", "round");
 
-function Book(title, author, pageCount, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pageCount = pageCount;
-  this.read = isRead;
-  this.info = function () {
-    return `${title} by ${author} has ${pageCount} pages, and ${this.read}`;
-  };
+class Book {
+  constructor(title, author, pageCount, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pageCount = pageCount;
+    this.read = isRead;
+    this.info = function () {
+      return `${title} by ${author} has ${pageCount} pages, and ${this.read}`;
+    };
+  }
 }
 
 addButton.textContent = "Click here to add a new book";
@@ -100,6 +102,7 @@ function addShelf() {
     }
   }
 }
+
 function addReadButton(div, tempVar) {
   let readButton = document.createElement("button");
   div.appendChild(readButton);
